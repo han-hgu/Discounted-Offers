@@ -44,7 +44,7 @@ type customer struct {
 
 type product struct {
 	name string
-	cs   *CharSet
+	cs   *charSet
 }
 
 //Assume the comparison is case insensitive
@@ -60,7 +60,7 @@ func calculateSS(p *product, c *customer) float32 {
 }
 
 func Intersects(p *product, c *customer) bool {
-	return p.cs.Intersects(c.cs)
+	return p.cs.intersects(c.cs)
 }
 
 type DiscountOfferMatrix struct {

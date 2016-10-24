@@ -7,7 +7,7 @@ import (
 )
 
 //TODO: better name?
-type charset struct {
+type charSet struct {
 	bits uint32
 }
 
@@ -20,16 +20,16 @@ func (c1 *charSet) intersects(c2 *charSet) bool {
 }
 
 //Compared case insensitive
-func set(s string) (error, charSet) {
+func set(s string) (error, *charSet) {
 	ls := strings.ToLower(s)
 	var rcs charSet
 	for _, c := range ls {
 		if c > unicode.MaxASCII {
 			//TODO: Make error display c
-			return errors.New("Only ASCII string can not processed")
+			return errors.New("Only ASCII string can not processed"), nil
 		}
-		rcs.set(ls[i])
+		rcs.set(byte(c))
 	}
 
-	return nil, rcs
+	return nil, &rcs
 }
