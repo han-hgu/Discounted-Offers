@@ -2,18 +2,27 @@ package main
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/clyphub/munkres"
 	"github.com/gammazero/workerpool"
 )
 
-var result []float32
+var result []float64
 
-const vowelFactor float32 = 1.5
-const consonantFactor float32 = 1
+//TODO: Caching necessary?
+/*
+var productCache map[string]*product
+var customerCache map[string]*customer
+*/
 
+const vowelFactor = 1.5
+const consonantFactor = 1
+
+//test no customer is provided in the list
 func parseFile(filename string) ([]string, error) {
 	file, err := os.Open(filename)
 
@@ -36,62 +45,85 @@ func parseFile(filename string) ([]string, error) {
 	return rs, nil
 }
 
-type customer struct {
-	name     string
-	numVowel int
-	cs       *charSet
+type discountOfferMatrix struct {
+	customers []*customer
+	products  []*product
+	*munkres.Matrix
 }
 
-type product struct {
-	name string
-	cs   *charSet
+//compute returns -1 if error is encountered processing this line
+func compute(line string) float64 {
+	//_ := NewDiscountOfferMatrix(line)
+	//compute()
+	return -1
 }
 
-//Assume the comparison is case insensitive
-func calculateSS(p *product, c *customer) float32 {
-	var rv float32
-	if len(p.name)%2 == 0 {
-		rv = float32(c.numVowel) * vowelFactor
-	} else {
-		rv = float32((len(c.name) - c.numVowel)) * consonantFactor
+//transform transforms the line to the customer and products
+func NewDiscountOfferMatrix(line string) (*discountOfferMatrix, error) {
+	rawl := strings.Split(line, ";")
+	rawCustomers := rawl[0]
+	rawProducts := rawl[1]
+
+	dsm := new(discountOfferMatrix)
+
+	for _, rc := range strings.Split(rawCustomers, ",") {
+		nc, err := NewCustomer(rc)
+		if err != nil {
+			return nil, err
+		}
+		dsm.customers = append(dsm.customers, nc)
 	}
 
-	return rv
+	for _, rp := range strings.Split(rawProducts, ",") {
+		np, err := NewProduct(rp)
+		if err != nil {
+			return nil, err
+		}
+		dsm.products = append(dsm.products, np)
+	}
+
+	//TODO: test one customer and one product
+	//Add filler, calculateSS knows how to calculate such
+	if len(dsm.products) > len(dsm.customers) {
+		fillDummyCustomers(dsm.customers, len(dsm.products)-len(dsm.customers))
+	} else if len(dsm.products) < len(dsm.customers) {
+		fillDummyProducts(&dsm.products, len(dsm.customers)-len(dsm.products))
+	}
+
+	var err error
+	dsm.Matrix, err = constructMatrixHelper(dsm.customers, dsm.products)
+	if err != nil {
+		return nil, err
+	}
+
+	return dsm, nil
 }
 
-func Intersects(p *product, c *customer) bool {
-	return p.cs.intersects(c.cs)
-}
+func constructMatrixHelper(cs []*customer, ps []*product) (*munkres.Matrix, error) {
+	if len(cs) != len(ps) {
+		return nil, errors.New("Unable to construct a munkres matrix with unequal number of customers and products")
+	}
 
-type DiscountOfferMatrix struct {
-	rows    []customer
-	columns []product
-	munkres.Matrix
-}
+	mm := munkres.NewMatrix(len(cs))
 
-func compute(line string) float32 {
-	transform(line)
-	//compute()
-	return 0
-}
-
-func transform(input string) *munkres.Matrix {
-	fmt.Println(input)
-	return nil
+	return mm, nil
 }
 
 //parse the input file and create worker for each line
-func process(info []string, worker_num int) []float32 {
+func process(info []string, worker_num int) []float64 {
 	fmt.Println("worker number:", worker_num)
 
-	rv := make([]float32, len(info))
+	rv := make([]float64, len(info))
 	//for each line, send it to a worker
 	wp := workerpool.New(worker_num)
 
 	for i := 0; i < len(info); i++ {
 		wp.Submit(func() {
-			r := compute(info[i])
-			rv[i] = r
+			//TODO: Test empty line in the input file
+			if info[i] != "" {
+				r := compute(info[i])
+				rv[i] = r
+			}
 		})
 	}
 

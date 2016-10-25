@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"runtime"
@@ -23,6 +22,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println(rs)
 	process(rs, runtime.NumCPU())
 }

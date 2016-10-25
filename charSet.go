@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"strings"
 	"unicode"
 )
@@ -20,16 +19,16 @@ func (c1 *charSet) intersects(c2 *charSet) bool {
 }
 
 //Compared case insensitive
-func set(s string) (error, *charSet) {
+func set(s string) (*charSet, error) {
 	ls := strings.ToLower(s)
-	var rcs charSet
+	rcs := new(charSet)
 	for _, c := range ls {
 		if c > unicode.MaxASCII {
 			//TODO: Make error display c
-			return errors.New("Only ASCII string can not processed"), nil
+			return nil, nil
 		}
 		rcs.set(byte(c))
 	}
 
-	return nil, &rcs
+	return rcs, nil
 }
