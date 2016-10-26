@@ -1,0 +1,444 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"SPrint",
+				"Sprintln\tstring ƒ"
+			],
+			[
+				"num",
+				"numOfLetters\tint ν"
+			],
+			[
+				"M",
+				"munkres\t package ρ"
+			],
+			[
+				"Pr",
+				"products\t[]*product ν"
+			],
+			[
+				"N",
+				"numVowel\tint ν"
+			],
+			[
+				"GetUser",
+				"GetUserDetail"
+			],
+			[
+				"iter",
+				"iteritems\tfunction"
+			],
+			[
+				"i",
+				"iteritems\tfunction"
+			],
+			[
+				"test",
+				"_testInfo"
+			],
+			[
+				"val",
+				"valList\tstatement"
+			],
+			[
+				"number",
+				"numberOfUsers\tstatement"
+			],
+			[
+				"asci",
+				"ascii_lowercase\tstatement"
+			],
+			[
+				"lwo",
+				"lowercase\tstatement"
+			],
+			[
+				"ascii",
+				"ascii_uppercase\tstatement"
+			],
+			[
+				"Debug",
+				"DEBUG\tstatement"
+			],
+			[
+				"Ino",
+				"INFO\tstatement"
+			],
+			[
+				"GRIN",
+				"GRINDERPATH"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "test",
+			"settings":
+			{
+				"buffer_size": 623,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 490.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 162.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/dev/gocode/src/github.com/Discounted-Offers",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/input"
+	],
+	"file_history":
+	[
+		"/C/dev/gocode/src/github.com/Discounted-Offers/main.go",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/process_test.go",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/process.go",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/input/test",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/charSet_test.go",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/utility_test.go",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/utility.go",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/charSet.go",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/productAndCustomer_test.go",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/productAndCustomer.go",
+		"/C/dev/gocode/src/github.com/gammazero/workerpool/workerpool.go",
+		"/C/Users/hgu/Dropbox/IVQ/discount-offer/process_test.go",
+		"/C/Users/hgu/Dropbox/IVQ/discount-offer/process.go",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/byteset.go",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/README.md",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/worker.go",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/parsor.go",
+		"/C/Users/hgu/AppData/Roaming/Sublime Text 3/Packages/User/GoSublime.sublime-settings",
+		"/C/dev/gocode/src/github.com/Discounted-Offers/.gitignore",
+		"/C/Users/hgu/Dropbox/IVQ/contact-manager/contactmanager/phonenumber.go",
+		"/C/Users/hgu/Dropbox/IVQ/contact-manager/contactmanager/manager.go",
+		"/C/Users/hgu/AppData/Roaming/Sublime Text 3/Packages/User/Discount-Offer.sublime-project",
+		"/C/Users/hgu/Documents/Feature/grinder_script_backup/soap_updateUserBillDay_No_Error_updating_but_not_response_2016_09_12.py",
+		"/C/Users/hgu/Documents/Feature/grinder_script_backup/soap_updateUserBillDay_No_Error_but_not_updating_2016_09_12.py",
+		"/C/Users/hgu/xtest.py",
+		"/C/grinder-3.11/hgu/Delle555003-file-store/incoming/soap.py",
+		"/C/grinder-3.11/hgu/log/Delle555003-0.log",
+		"/C/grinder-3.11/hgu/log/Delle555003-1.log",
+		"/C/grinder-3.11/hgu/startConsole.bat",
+		"/C/grinder-3.11/hgu/soap/soap.py",
+		"/C/grinder-3.11/hgu/log/Delle555003-0-data.log",
+		"/C/grinder-3.11/hgu/log/Delle555003-2.log",
+		"/C/Users/hgu/AppData/Roaming/Sublime Text 3/Packages/GoSublime/USAGE.md",
+		"/C/grinder-3.11/hgu/log/Delle555003-0.log1",
+		"/C/grinder-3.11/hgu/log/Delle555003-1-data.log",
+		"/C/grinder-3.11/examples/httpg2.py",
+		"/C/grinder-3.11/examples/api/GetUserDetail.py",
+		"/C/grinder-3.11/hgu/log/Delle555003-6.log",
+		"/C/Users/hgu/AppData/Roaming/Sublime Text 3/Packages/Fold Python/FoldPython.sublime-settings",
+		"/C/Users/hgu/AppData/Roaming/Sublime Text 3/Packages/User/FoldPython.sublime-settings",
+		"/c/python27/lib/site-packages/suds/client.py",
+		"/C/Users/hgu/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/C/Users/hgu/AppData/Roaming/Sublime Text 3/Packages/User/Python.sublime-settings",
+		"/C/Users/hgu/Dropbox/golang/FileProcess/process.go"
+	],
+	"find":
+	{
+		"height": 43.0
+	},
+	"find_in_files":
+	{
+		"height": 117.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"ascii",
+			"asciii",
+			"resul",
+			"fmt.Println",
+			"fmt.println",
+			"munk",
+			"= ",
+			"consonantFactor",
+			"vowelFactor",
+			"fmt.Printl",
+			"fmt.Println",
+			"fmt.Println(",
+			"compute",
+			"result",
+			"rowcol",
+			"discountoffermatrix",
+			"Intersects",
+			"vowelFactor",
+			"numofvowel",
+			"numof",
+			"isvowel",
+			"mukres",
+			"tolower",
+			"errors.New",
+			"error.New",
+			"for",
+			"compute",
+			"transform",
+			"consonantFactor",
+			"float",
+			"numVowel",
+			"Charset",
+			"CharSet",
+			"comp_lint_commands",
+			"linters",
+			"fmt_cmd",
+			"re",
+			"15",
+			"GetUserDetail",
+			"log",
+			"for",
+			"+=",
+			"testName",
+			"testParam",
+			"for",
+			"testName",
+			"test_param",
+			"numberOfUsers",
+			"GetUserDetail",
+			"AcctNamesToQuery",
+			"testName",
+			"numberOfUsers",
+			"defaultPassword",
+			"url",
+			"defaultRoleName",
+			"defaultPassword",
+			"UpdateUserBillDay",
+			"dispatcher",
+			"HAN >>",
+			"AddPackageToUser",
+			"GetUserDetail",
+			"getUserDetail",
+			"AcctNamesToQuery",
+			"getUserDetail",
+			"jython",
+			"post",
+			"createRequest",
+			".record(",
+			"page1",
+			"page\npage1",
+			"request301",
+			"request201",
+			"request302",
+			"createRequest",
+			"debug",
+			"ebug",
+			"2.5.3",
+			"2.5",
+			"2.7",
+			"2.5.3",
+			"test1",
+			"self(",
+			"15",
+			"jmv.arguments",
+			"dom",
+			"parameters",
+			"JAX-RPC Web Service",
+			"6372",
+			":\\",
+			"gs_gopath",
+			"GOPATH",
+			"gopath"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "test",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 623,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								623,
+								623
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.9o://C:\\Users\\hgu\\Dropbox\\golang\\FileProcess":
+	{
+		"height": 130.0
+	},
+	"output.9o://C:\\dev\\gocode\\src\\github.com\\Discounted-Offers":
+	{
+		"height": 130.0
+	},
+	"output.GoSublime-output":
+	{
+		"height": 130.0
+	},
+	"output.MarGo-output":
+	{
+		"height": 93.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "do.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"soap",
+				"examples\\soap.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 294.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

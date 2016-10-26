@@ -3,12 +3,10 @@ package main
 import (
 	"log"
 	"os"
-	"runtime"
 )
 
 func usage() string {
-	//TODO
-	usage := "usage: "
+	usage := "usage: Discounted-Offers input_file"
 	return usage
 }
 
@@ -17,10 +15,11 @@ func main() {
 		log.Fatal(usage())
 	}
 
-	rs, err := parseFile(os.Args[1])
+	rs, err := ParseFile(os.Args[1])
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Unable to parse file %v: %v", os.Args[1], err)
 	}
 
-	process(rs, runtime.NumCPU())
+	result := processStrings(rs)
+	print(result)
 }

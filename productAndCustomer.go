@@ -1,10 +1,13 @@
 package main
 
-import "fmt"
+const vowelFactor = 1.5
+const consonantFactor = 1
+const gcdFactor = 1.5
+const expandFactor = 1000
 
 type namedObj struct {
-	name string
-	cs   *charSet
+	name         string
+	numOfLetters int
 }
 
 type product struct {
@@ -16,87 +19,70 @@ type customer struct {
 	numVowel int
 }
 
-func newObj(name string) (*namedObj, error) {
-	cs, err := set(name)
-
-	if err != nil {
-		return nil, err
-	}
-
+// newobj creates a namedObj instance
+func newObj(name string) *namedObj {
 	nobj := new(namedObj)
 	nobj.name = name
-	nobj.cs = cs
+	nobj.numOfLetters = NumOfLetters(name)
 
-	return nobj, nil
+	return nobj
 }
 
-//NewCustomer creates a new customer, this method should
-//be called if creating a new customer
-func NewCustomer(name string) (*customer, error) {
-	nobj, err := newObj(name)
-	if err != nil {
-		return nil, err
-	}
-
+// NewCustomer creates a new customer
+func NewCustomer(name string) *customer {
+	nobj := newObj(name)
 	nc := new(customer)
 	nc.numVowel = NumOfVowels(name)
 	nc.namedObj = nobj
-
-	return nc, nil
+	return nc
 }
 
-func NewProduct(name string) (*product, error) {
-	nobj, err := newObj(name)
-	if err != nil {
-		return nil, err
-	}
-
-	nc := new(product)
-	nc.namedObj = nobj
-	return nc, nil
+// NewProduct creates a new product
+func NewProduct(name string) *product {
+	nobj := newObj(name)
+	np := new(product)
+	np.namedObj = nobj
+	return np
 }
 
-//Assume the comparison is case insensitive
-func calculateSS(p *product, c *customer) float64 {
-	//If either name is empty, return 0, it is a dummy product or customer
+// calculateSS calculates the SS score for product and customer provided,
+// assuming the ascii character comparison is case insensitive.
+func calculateSS(p *product, c *customer) int64 {
+	//If either name is empty, return 0 for dummy product/customer
 	if p.name == "" || c.name == "" {
 		return 0
 	}
 
 	var rv float64
-	if len(p.name)%2 == 0 {
+	if p.numOfLetters%2 == 0 { //rule #1
 		rv = float64(c.numVowel) * vowelFactor
-	} else {
-		rv = float64((len(c.name) - c.numVowel)) * consonantFactor
+	} else { //rule #2
+		rv = float64(c.numOfLetters-c.numVowel) * consonantFactor
 	}
 
-	return rv
+	if gcd(c.numOfLetters, p.numOfLetters) > 1 { //rule #3
+		rv = rv * gcdFactor
+	}
+
+	// munkres package can only calculate matrices with entry type int,
+	// expand the float 1000 times and take the int portion to achieve
+	// the accuracy level of "2 digits after decimal point"
+	return int64(rv * expandFactor)
 }
 
-//TODO: check capitalize
-func Intersects(p *product, c *customer) bool {
-	return p.cs.intersects(c.cs)
-}
-
+// fillDummyCustomers adds the specified number of nameless customers
+// into the customer slice, the SS score will always be 0 if the dummy
+// customer is involved
 func fillDummyCustomers(cs *[]*customer, num int) {
-	if num <= 0 {
-		return
-	}
-
 	for i := 0; i < num; i++ {
-		nc, _ := NewCustomer("")
-		*cs = append(*cs, nc)
+		*cs = append(*cs, NewCustomer(""))
 	}
 }
 
+// fillDummyProducts adds the specified number of nameless products
+// into the product slice
 func fillDummyProducts(ps *[]*product, num int) {
-	fmt.Println("HAN >>>>> fillDummyProducts called. ", num)
-	if num <= 0 {
-		return
-	}
-
 	for i := 0; i < num; i++ {
-		np, _ := NewProduct("")
-		*ps = append(*ps, np)
+		*ps = append(*ps, NewProduct(""))
 	}
 }
